@@ -1,0 +1,12 @@
+# temporary files
+*~
+*.tmp
+*.swp
+*.log
+
+# Node.js module files
+node_modules/
+
+# IDE files
+/.idea/
+/maylily.iml

@@ -1,0 +1,31 @@
+{
+  "name": "maylily",
+  "version": "1.0.0",
+  "description": "distributable, serverless, and customizable unique ID number generator based on Snowflake",
+  "main": "./maylily.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shimataro/maylily.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "node.js",
+    "javascript",
+    "snowflake",
+    "flake",
+    "unique",
+    "id",
+    "uid",
+    "twitter",
+    "generator"
+  ],
+  "author": "shimataro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shimataro/maylily/issues"
+  },
+  "homepage": "https://github.com/shimataro/maylily",
+  "dependencies": {},
+  "devDependencies": {}
+}
