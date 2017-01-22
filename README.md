@@ -3,6 +3,14 @@ MayLily
 
 distributable, serverless, and customizable unique ID number generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
+[![NPM](https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/maylily/)
+
+## How to install
+Install by `npm`.
+```bash
+npm install --save maylily
+```
+
 ## How to use
 No external libraries or servers needed.
 Just import and call `maylily()`!

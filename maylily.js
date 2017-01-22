@@ -47,7 +47,7 @@ module.exports = (function()
 		var sequenceLimit = 1 << optionsL.sequenceBits;
 		if(sequence < sequenceLimit)
 		{
-			// Increment sequence when sequence DOESN'T reached to limit.
+			// Increment sequence when sequence DOESN'T reach to limit.
 			return Promise.resolve(buildId(time, optionsL));
 		}
 
@@ -74,7 +74,7 @@ module.exports = (function()
 
 				if(sequence < sequenceLimit)
 				{
-					// Increment sequence when sequence DOESN'T reached to limit.
+					// Increment sequence when sequence DOESN'T reach to limit.
 					resolve(buildId(time, optionsL));
 				}
 			}, 1);
