@@ -4,9 +4,21 @@
 *.swp
 *.log
 
+# image caches
+.DS_Store
+Thumbs.db
+
+# patch/merge
+*.orig
+*.rej
+
 # Node.js module files
-node_modules/
+/node_modules/
+
+/dist/
 
 # IDE files
 /.idea/
-/maylily.iml
+/*.iml
+/nbproject/
+/.project

@@ -1,8 +1,8 @@
 {
   "name": "maylily",
   "version": "1.0.0",
-  "description": "distributable, serverless, and customizable unique ID number generator based on Snowflake",
-  "main": "./maylily.js",
+  "description": "distributable, serverless, and customizable unique ID generator based on Snowflake",
+  "main": "./dist/maylily.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/shimataro/maylily.git"
@@ -26,6 +26,27 @@
     "url": "https://github.com/shimataro/maylily/issues"
   },
   "homepage": "https://github.com/shimataro/maylily",
-  "dependencies": {},
-  "devDependencies": {}
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "build-js": "gulp build-js",
+    "watch": "gulp watch",
+    "watch-gulpfile": "gulp watch-gulpfile",
+    "watch-js": "gulp watch-js",
+    "postinstall": "npm run build",
+    "sample": "node dist/sample",
+    "check-updates": "ncu"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "big-integer": "^1.6.27",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0"
+  },
+  "devDependencies": {
+    "npm-check-updates": "^2.14.1"
+  }
 }
