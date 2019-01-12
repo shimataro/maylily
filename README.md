@@ -1,5 +1,4 @@
-MayLily
-===
+# MayLily
 
 distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
@@ -69,6 +68,7 @@ main();
 | `sequenceBits` | required bits to represent sequence | 8 |
 
 Generated value is stringified multiple precision integer (in specified radix).
+
 ```
  000001011100000101111010101110101010111101 001 1101101010 00000110
                                                           |--------| sequence number (uses sequenceBits bits)
@@ -90,9 +90,9 @@ maylily({
 ## Release note
 
 * 2018-04-01 *version 2.0.0*
-	* supports multiple precision integer
-		* type of return value is **string** (even if less than 53-bits)
-	* supports various radix (2-36)
-	* change default bits of some elements
+    * supports multiple precision integer
+        * type of return value is **string** (even if less than 53-bits)
+    * supports various radix (2-36)
+    * change default bits of some elements
 * 2017-01-21 *version 1.0.0*
-	* First release.
+    * First release.
