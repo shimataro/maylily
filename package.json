@@ -35,6 +35,8 @@
     "watch": "gulp watch",
     "watch-gulpfile": "gulp watch-gulpfile",
     "watch-js": "gulp watch-js",
+    "lint": "npm run lint:md",
+    "lint:md": "markdownlint . --ignore ./node_modules",
     "postinstall": "npm run build",
     "sample": "node dist/sample",
     "check-updates": "ncu"
@@ -47,6 +49,7 @@
     "gulp-babel": "^7.0.0"
   },
   "devDependencies": {
+    "markdownlint-cli": "^0.13.0",
     "npm-check-updates": "^2.14.1"
   }
 }
