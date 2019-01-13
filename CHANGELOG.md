@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * support ES Modules (`*.mjs`)
 * support [TypeScript](https://www.typescriptlang.org/) products
+* support [Visual Studio Code](https://code.visualstudio.com/) officially
 
 ## [2.0.0] - 2018-04-01
 
