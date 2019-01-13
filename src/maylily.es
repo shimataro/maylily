@@ -5,9 +5,7 @@
  */
 export default maylily;
 
-
 import BigInteger from "big-integer";
-
 
 const DEFAULT_BITS_MACHINE = 3; // up to 8 machines
 const DEFAULT_BITS_GENERATOR = 10; // 0-1023
@@ -18,7 +16,7 @@ const optionsGlobal = {
 	timeBase: Date.parse("2000-01-01T00:00:00Z"),
 	machineId: 0,
 	machineBits: DEFAULT_BITS_MACHINE,
-	generatorId: (process.pid % (1 << DEFAULT_BITS_GENERATOR)),
+	generatorId: process.pid % (1 << DEFAULT_BITS_GENERATOR),
 	generatorBits: DEFAULT_BITS_GENERATOR,
 	sequenceBits: DEFAULT_BITS_SEQUENCE,
 };
@@ -26,9 +24,9 @@ const optionsGlobal = {
 let timePrev = 0;
 let sequence = 0;
 
-
 /**
- * @param {?Object} options
+ * generate unique ID
+ * @param {?Object} options ID options
  * @return {Promise<string>} generated ID
  */
 function maylily(options = null)
@@ -60,9 +58,9 @@ function maylily(options = null)
 	}
 
 	// Wait until unixtime is updated
-	return new Promise(function(resolve, reject)
+	return new Promise((resolve, reject) =>
 	{
-		let timeout = setInterval(function()
+		let timeout = setInterval(() =>
 		{
 			const time = Date.now();
 			if(time < timePrev)
