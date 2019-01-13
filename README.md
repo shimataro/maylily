@@ -7,9 +7,9 @@
 [![Node.js version][image-engine]][link-engine]
 [![License][image-license]][link-license]
 
-distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
-
 [![NPM](https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/maylily/)
+
+distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
 ## How to install
 
@@ -24,10 +24,13 @@ npm install -S maylily
 No external servers needed.
 Just import and call `maylily()`!
 
-### JavaScript
+### JavaScript (require, Promise)
+
+Traditional syntax.
+This will run on most JavaScript engine.
 
 ```javascript
-var maylily = require("maylily").default;
+var maylily = require("maylily");
 
 function main() {
     // returns a Promise object
@@ -43,9 +46,33 @@ function main() {
 main();
 ```
 
-### ECMAScript 7 (async/await)
+### ECMAScript 7 (require, async/await)
+
+Modern syntax.
+Async/await syntax is easy to read
 
 ```javascript
+const maylily = require("maylily");
+
+async function main() {
+    try {
+        // returns a Promise object
+        const id = await maylily();
+        // do something...
+    }
+    catch(err) {
+        // err is instance of Error
+    }
+}
+
+main();
+```
+
+### ES Modules / Babel / TypeScript (import, async/await)
+
+VERY modern syntax!
+
+```typescript
 import maylily from "maylily";
 
 async function main() {
