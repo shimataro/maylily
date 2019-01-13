@@ -105,10 +105,10 @@ Generated value is stringified multiple precision integer (in specified radix).
 
 ```
  000001011100000101111010101110101010111101 001 1101101010 00000110
-                                                          |--------| sequence number (uses sequenceBits bits)
-                                               |----------|          generatorId (uses generatorBits bits)
-                                           |---|                     machineId (uses machineBits bits)
 |------------------------------------------|                         current time from timeBase in millisec
+                                           |---|                     machineId (uses machineBits bits)
+                                               |----------|          generatorId (uses generatorBits bits)
+                                                          |--------| sequence number (uses sequenceBits bits)
 ```
 
 example:
