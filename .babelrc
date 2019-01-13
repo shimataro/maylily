@@ -5,5 +5,12 @@
   ],
   "plugins": [
     ["add-module-exports"]
-  ]
+  ],
+  "env": {
+    "esm": {
+      "presets": [
+        ["@babel/preset-env", {"targets": {"node": "current"}, "useBuiltIns": "usage", "modules": false}]
+      ]
+    }
+  }
 }

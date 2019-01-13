@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Others
+
+* support ES Modules (`*.mjs`)
+
 ## [2.0.0] - 2018-04-01
 
 ### CHANGED

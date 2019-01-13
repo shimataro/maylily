@@ -31,17 +31,20 @@
   },
   "scripts": {
     "build": "run-p build:*",
-    "build:js": "npm run build-core",
+    "build:cjs": "npm run build-core",
+    "build:esm": "cross-env BABEL_ENV=esm npm run build-core -- --keep-file-extension",
     "build-core": "babel ./src --out-dir ./dist --source-maps",
     "watch": "run-p watch:*",
-    "watch:js": "npm run build-core -- --watch",
+    "watch:cjs": "npm run build-core -- --watch",
+    "watch:esm": "cross-env BABEL_ENV=esm npm run build-core -- --keep-file-extension --watch",
     "verify": "run-p lint",
     "lint": "run-p lint:*",
-    "lint:es": "eslint ./src --ext .es",
+    "lint:es": "eslint ./src --ext .mjs",
     "lint:md": "markdownlint . --ignore ./node_modules",
     "lint:yaml": "yamllint .*.yml *.yml --ignore=node_modules/**/*.yml --ignore=node_modules/**/*.yaml",
     "postinstall": "npm run build",
-    "sample": "node dist/sample",
+    "sample:cjs": "node dist/sample.js",
+    "sample:esm": "node --experimental-modules dist/sample.mjs",
     "check-updates": "ncu"
   },
   "dependencies": {
@@ -54,6 +57,7 @@
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
+    "cross-env": "5.2.0",
     "eslint": "5.12.0",
     "eslint-plugin-import": "2.14.0",
     "markdownlint-cli": "0.13.0",
