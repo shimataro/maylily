@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Others
 
 * support ES Modules (`*.mjs`)
+* support [TypeScript](https://www.typescriptlang.org/) products
 
 ## [2.0.0] - 2018-04-01
 

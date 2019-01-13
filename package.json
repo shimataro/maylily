@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "distributable, serverless, and customizable unique ID generator based on Snowflake",
   "main": "./dist/maylily.js",
+  "types": "./src/maylily.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/shimataro/maylily.git"
@@ -43,8 +44,8 @@
     "lint:md": "markdownlint . --ignore ./node_modules",
     "lint:yaml": "yamllint .*.yml *.yml --ignore=node_modules/**/*.yml --ignore=node_modules/**/*.yaml",
     "postinstall": "npm run build",
-    "sample:cjs": "node dist/sample.js",
-    "sample:esm": "node --experimental-modules dist/sample.mjs",
+    "example:cjs": "node dist/example.js",
+    "example:esm": "node --experimental-modules dist/example.mjs",
     "check-updates": "ncu"
   },
   "dependencies": {
