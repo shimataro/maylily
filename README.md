@@ -7,7 +7,7 @@
 [![Node.js version][image-engine]][link-engine]
 [![License][image-license]][link-license]
 
-[![NPM](https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/maylily/)
+[![NPM][image-npm]][link-npm]
 
 distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
@@ -27,12 +27,12 @@ Just import and call `maylily()`!
 ### JavaScript (require, Promise)
 
 Traditional syntax.
-This will run on most JavaScript engine.
+This code will run on most JavaScript engine.
 
 ```javascript
 var maylily = require("maylily");
 
-function main() {
+(function() {
     // returns a Promise object
     maylily()
         .then(function(id) {
@@ -41,9 +41,7 @@ function main() {
         .catch(function(err) {
             // err is instance of Error
         });
-}
-
-main();
+}();
 ```
 
 ### ECMAScript 7 (require, async/await)
@@ -54,39 +52,33 @@ Async/await syntax is easy to read
 ```javascript
 const maylily = require("maylily");
 
-async function main() {
+(async() => {
     try {
-        // returns a Promise object
         const id = await maylily();
         // do something...
     }
     catch(err) {
         // err is instance of Error
     }
-}
-
-main();
+})();
 ```
 
 ### ES Modules / Babel / TypeScript (import, async/await)
 
 VERY modern syntax!
 
-```typescript
+```javascript
 import maylily from "maylily";
 
-async function main() {
+(async() => {
     try {
-        // returns a Promise object
         const id = await maylily();
         // do something...
     }
     catch(err) {
         // err is instance of Error
     }
-}
-
-main();
+})();
 ```
 
 ## How to customize
@@ -114,7 +106,7 @@ Generated value is stringified multiple precision integer (in specified radix).
 example:
 
 ```javascript
-// holds the change until next change
+// keeps options until next change
 maylily({
     timeBase: Date.parse("2017-01-01T00:00:00Z"),   // if your service starts in 2017, this is enough.
     machineBits: 1                                  // if required number machines are up to 2, this is enough.
@@ -137,3 +129,5 @@ See [CHANGELOG.md](CHANGELOG.md).
 [link-engine]: https://nodejs.org/
 [image-license]: https://img.shields.io/github/license/shimataro/maylily.svg
 [link-license]: ./LICENSE
+[image-npm]: https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true
+[link-npm]: https://nodei.co/npm/maylily/
