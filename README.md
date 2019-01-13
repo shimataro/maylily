@@ -87,12 +87,6 @@ maylily({
 });
 ```
 
-## Release note
+## Changelog
 
-* 2018-04-01 *version 2.0.0*
-    * supports multiple precision integer
-        * type of return value is **string** (even if less than 53-bits)
-    * supports various radix (2-36)
-    * change default bits of some elements
-* 2017-01-21 *version 1.0.0*
-    * First release.
+See [CHANGELOG.md](CHANGELOG.md).
