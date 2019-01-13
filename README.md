@@ -100,10 +100,10 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 [image-build-windows]: https://img.shields.io/appveyor/ci/shimataro/maylily/master.svg?label=Windows
 [link-build-windows]: https://ci.appveyor.com/project/shimataro/maylily
-[image-build-macos]: https://img.shields.io/travis/shimataro/maylily/master.svg?label=macOS
-[link-build-macos]: https://travis-ci.org/shimataro/maylily
-[image-build-linux]: https://img.shields.io/travis/shimataro/maylily/master.svg?label=Linux
-[link-build-linux]: https://travis-ci.org/shimataro/maylily
+[image-build-macos]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=macOS
+[link-build-macos]: https://travis-ci.com/shimataro/maylily
+[image-build-linux]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=Linux
+[link-build-linux]: https://travis-ci.com/shimataro/maylily
 [image-release]: https://img.shields.io/github/release/shimataro/maylily.svg
 [link-release]: https://github.com/shimataro/maylily/releases
 [image-engine]: https://img.shields.io/node/v/adjuster.svg
