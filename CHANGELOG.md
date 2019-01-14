@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.1] - 2019-01-14
+
+### Fixed
+
+* fix `email` and `api_key` for deploying
+
 ## [2.1.0] - 2019-01-14
 
 ### Others
@@ -28,7 +34,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * First release.
 
-[Unreleased]: https://github.com/shimataro/maylily/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/shimataro/maylily/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/shimataro/maylily/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/shimataro/maylily/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/shimataro/maylily/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/shimataro/maylily/compare/870275f4c8a9bea56741a39c943eae1c0e33415f...v1.0.0
