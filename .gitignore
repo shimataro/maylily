@@ -1,6 +1,7 @@
 # temporary files
 *~
 *.tmp
+*.bak
 *.swp
 *.log
 
@@ -15,7 +16,9 @@ Thumbs.db
 # Node.js module files
 /node_modules/
 
+# auto-generated files
 /dist/
+/coverage/
 
 # IDE files
 /.idea/

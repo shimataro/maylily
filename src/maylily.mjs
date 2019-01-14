@@ -1,24 +1,34 @@
-/*!
- * MayLily - distributable, serverless, and customizable unique ID generator based on Snowflake
+/**
+ * @description MayLily - distributable, serverless, and customizable unique ID generator based on Snowflake
+ * @license MIT License
  * https://github.com/shimataro/maylily
- * MIT License
  */
 export default maylily;
 
-
 import BigInteger from "big-integer";
 
+/**
+ * @typedef {Object} MaylilyOptions
+ * @property {number} radix radix of generated ID
+ * @property {number} timeBase base time [milliseconds]
+ * @property {number} machineId ID of machine, use when generate ID by multiple machines
+ * @property {number} machineBits size of machineId
+ * @property {number} generatorId ID of generator
+ * @property {number} generatorBits size of generatorId
+ * @property {number} sequenceBits size of sequence
+ */
 
 const DEFAULT_BITS_MACHINE = 3; // up to 8 machines
 const DEFAULT_BITS_GENERATOR = 10; // 0-1023
 const DEFAULT_BITS_SEQUENCE = 8; // 0-255
 
+/** @type {MaylilyOptions} */
 const optionsGlobal = {
 	radix: 10,
 	timeBase: Date.parse("2000-01-01T00:00:00Z"),
 	machineId: 0,
 	machineBits: DEFAULT_BITS_MACHINE,
-	generatorId: (process.pid % (1 << DEFAULT_BITS_GENERATOR)),
+	generatorId: process.pid % (1 << DEFAULT_BITS_GENERATOR),
 	generatorBits: DEFAULT_BITS_GENERATOR,
 	sequenceBits: DEFAULT_BITS_SEQUENCE,
 };
@@ -26,9 +36,9 @@ const optionsGlobal = {
 let timePrev = 0;
 let sequence = 0;
 
-
 /**
- * @param {?Object} options
+ * generate unique ID
+ * @param {MaylilyOptions | null} [options = null] ID options
  * @return {Promise<string>} generated ID
  */
 function maylily(options = null)
@@ -38,31 +48,33 @@ function maylily(options = null)
 	{
 		Object.assign(optionsGlobal, options);
 	}
-
-	const time = Date.now();
-	if(time < timePrev)
-	{
-		return Promise.reject(errorUnixtimeBackwards(time));
-	}
-
-	if(time > timePrev)
-	{
-		// Reset sequence when unixtime is updated.
-		sequence = 0;
-		return Promise.resolve(buildId(time, optionsGlobal));
-	}
-
 	const sequenceLimit = 1 << optionsGlobal.sequenceBits;
-	if(sequence < sequenceLimit)
+
 	{
-		// Increment sequence when sequence DOESN'T reach to limit.
-		return Promise.resolve(buildId(time, optionsGlobal));
+		const time = Date.now();
+		if(time < timePrev)
+		{
+			return Promise.reject(errorUnixtimeBackwards(time));
+		}
+
+		if(time > timePrev)
+		{
+			// Reset sequence when unixtime is updated.
+			sequence = 0;
+			return Promise.resolve(buildId(time, optionsGlobal));
+		}
+
+		if(sequence < sequenceLimit)
+		{
+			// Increment sequence when sequence DOESN'T reach to limit.
+			return Promise.resolve(buildId(time, optionsGlobal));
+		}
 	}
 
 	// Wait until unixtime is updated
-	return new Promise(function(resolve, reject)
+	return new Promise((resolve, reject) =>
 	{
-		let timeout = setInterval(function()
+		let timeout = setInterval(() =>
 		{
 			const time = Date.now();
 			if(time < timePrev)
@@ -91,8 +103,8 @@ function maylily(options = null)
 
 /**
  * build unique ID
- * @param {int} time unixtime[millisec]
- * @param {Object} options other options
+ * @param {number} time unixtime[millisec]
+ * @param {MaylilyOptions} options other options
  * @return {string} generated ID
  */
 function buildId(time, options)
@@ -108,7 +120,7 @@ function buildId(time, options)
 
 /**
  * generate error instance for unixtime error
- * @param {int} time unixtime[millisec]
+ * @param {number} time unixtime[millisec]
  * @return {Error} error instance
  */
 function errorUnixtimeBackwards(time)

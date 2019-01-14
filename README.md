@@ -1,8 +1,24 @@
 # MayLily
 
+[![Build Status (Windows)][image-build-windows]][link-build-windows]
+[![Build Status (macOS)][image-build-macos]][link-build-macos]
+[![Build Status (Linux)][image-build-linux]][link-build-linux]
+[![Release][image-release]][link-release]
+[![Node.js version][image-engine]][link-engine]
+[![License][image-license]][link-license]
+
+[![NPM][image-npm]][link-npm]
+
 distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
-[![NPM](https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/maylily/)
+## Features
+
+* distributable / scalable
+* no external servers required
+* customizable
+* supports 2-36 radix
+* supports multiple precision integer
+* supports CommonJS, ES Modules, TypeScript
 
 ## How to install
 
@@ -19,10 +35,13 @@ Just import and call `maylily()`!
 
 ### JavaScript
 
-```javascript
-var maylily = require("maylily").default;
+Traditional syntax.
+This code will run on most JavaScript engine.
 
-function main() {
+```javascript
+var maylily = require("maylily");
+
+(function() {
     // returns a Promise object
     maylily()
         .then(function(id) {
@@ -31,28 +50,44 @@ function main() {
         .catch(function(err) {
             // err is instance of Error
         });
-}
-
-main();
+}();
 ```
 
-### ECMAScript 7 (async/await)
+### ECMAScript 7
+
+Modern syntax.
+Async/await syntax is easy to read
 
 ```javascript
-import maylily from "maylily";
+const maylily = require("maylily");
 
-async function main() {
+(async() => { // async syntax / arrow function
     try {
-        // returns a Promise object
+        const id = await maylily(); // await syntax
+        // do something...
+    }
+    catch(err) {
+        // err is instance of Error
+    }
+})();
+```
+
+### ES Modules / Babel / TypeScript (import, async/await)
+
+VERY modern syntax!
+
+```javascript
+import maylily from "maylily"; // import syntax
+
+(async() => {
+    try {
         const id = await maylily();
         // do something...
     }
     catch(err) {
         // err is instance of Error
     }
-}
-
-main();
+})();
 ```
 
 ## How to customize
@@ -71,28 +106,37 @@ Generated value is stringified multiple precision integer (in specified radix).
 
 ```
  000001011100000101111010101110101010111101 001 1101101010 00000110
-                                                          |--------| sequence number (uses sequenceBits bits)
-                                               |----------|          generatorId (uses generatorBits bits)
-                                           |---|                     machineId (uses machineBits bits)
 |------------------------------------------|                         current time from timeBase in millisec
+                                           |---|                     machineId (uses machineBits bits)
+                                               |----------|          generatorId (uses generatorBits bits)
+                                                          |--------| sequence number (uses sequenceBits bits)
 ```
 
 example:
 
 ```javascript
-// holds the change until next change
+// keeps options until next change
 maylily({
     timeBase: Date.parse("2017-01-01T00:00:00Z"),   // if your service starts in 2017, this is enough.
     machineBits: 1                                  // if required number machines are up to 2, this is enough.
 });
 ```
 
-## Release note
+## Changelog
 
-* 2018-04-01 *version 2.0.0*
-    * supports multiple precision integer
-        * type of return value is **string** (even if less than 53-bits)
-    * supports various radix (2-36)
-    * change default bits of some elements
-* 2017-01-21 *version 1.0.0*
-    * First release.
+See [CHANGELOG.md](CHANGELOG.md).
+
+[image-build-windows]: https://img.shields.io/appveyor/ci/shimataro/maylily/master.svg?label=Windows
+[link-build-windows]: https://ci.appveyor.com/project/shimataro/maylily
+[image-build-macos]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=macOS
+[link-build-macos]: https://travis-ci.com/shimataro/maylily
+[image-build-linux]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=Linux
+[link-build-linux]: https://travis-ci.com/shimataro/maylily
+[image-release]: https://img.shields.io/github/release/shimataro/maylily.svg
+[link-release]: https://github.com/shimataro/maylily/releases
+[image-engine]: https://img.shields.io/node/v/adjuster.svg
+[link-engine]: https://nodejs.org/
+[image-license]: https://img.shields.io/github/license/shimataro/maylily.svg
+[link-license]: ./LICENSE
+[image-npm]: https://nodei.co/npm/maylily.svg?downloads=true&downloadRank=true&stars=true
+[link-npm]: https://nodei.co/npm/maylily/

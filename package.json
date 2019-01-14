@@ -1,8 +1,9 @@
 {
   "name": "maylily",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "distributable, serverless, and customizable unique ID generator based on Snowflake",
   "main": "./dist/maylily.js",
+  "types": "./src/maylily.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/shimataro/maylily.git"
@@ -27,29 +28,62 @@
   },
   "homepage": "https://github.com/shimataro/maylily",
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">=4.0.0",
+    "npm": ">=2.0.0"
   },
   "scripts": {
-    "build": "gulp build",
-    "build-js": "gulp build-js",
-    "watch": "gulp watch",
-    "watch-gulpfile": "gulp watch-gulpfile",
-    "watch-js": "gulp watch-js",
-    "lint": "npm run lint:md",
+    "build": "run-p build:*",
+    "build:cjs": "npm run build-core",
+    "build:esm": "cross-env BABEL_ENV=esm npm run build-core -- --keep-file-extension",
+    "build-core": "babel ./src --out-dir ./dist --source-maps",
+    "watch": "run-p watch:*",
+    "watch:cjs": "npm run build-core -- --watch",
+    "watch:esm": "cross-env BABEL_ENV=esm npm run build-core -- --keep-file-extension --watch",
+    "test": "cross-env NODE_PATH=./src jest",
+    "verify": "run-p test lint",
+    "lint": "run-p lint:*",
+    "lint:es": "eslint ./src --ext .mjs",
     "lint:md": "markdownlint . --ignore ./node_modules",
+    "lint:yaml": "yamllint .*.yml *.yml --ignore=node_modules/**/*.yml --ignore=node_modules/**/*.yaml",
     "postinstall": "npm run build",
-    "sample": "node dist/sample",
+    "example:cjs": "node dist/example.js",
+    "example:esm": "node --experimental-modules dist/example.mjs",
     "check-updates": "ncu"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "big-integer": "^1.6.27",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0"
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.2.3",
+    "babel-plugin-add-module-exports": "1.0.0",
+    "big-integer": "1.6.40"
   },
   "devDependencies": {
-    "markdownlint-cli": "^0.13.0",
-    "npm-check-updates": "^2.14.1"
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
+    "cross-env": "5.2.0",
+    "eslint": "5.12.0",
+    "eslint-plugin-import": "2.14.0",
+    "jest": "23.6.0",
+    "markdownlint-cli": "0.13.0",
+    "npm-check-updates": "2.15.0",
+    "npm-run-all": "4.1.5",
+    "yaml-lint": "1.2.4"
+  },
+  "jest": {
+    "verbose": false,
+    "moduleFileExtensions": [
+      "js",
+      "mjs"
+    ],
+    "moduleNameMapper": {
+      "^maylily$": "<rootDir>/src/maylily"
+    },
+    "testEnvironment": "node",
+    "testRegex": "\\.(test|spec)\\.mjs$",
+    "transform": {
+      "\\.mjs$": "babel-jest"
+    },
+    "collectCoverage": false,
+    "coverageDirectory": "./coverage/"
   }
 }
