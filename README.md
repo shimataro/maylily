@@ -11,6 +11,15 @@
 
 distributable, serverless, and customizable unique ID generator based on [Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010/)
 
+## Features
+
+* distributable / scalable
+* no external servers required
+* customizable
+* supports 2-36 radix
+* supports multiple precision integer
+* supports CommonJS, ES Modules, TypeScript
+
 ## How to install
 
 Install by `npm`.
@@ -24,7 +33,7 @@ npm install -S maylily
 No external servers needed.
 Just import and call `maylily()`!
 
-### JavaScript (require, Promise)
+### JavaScript
 
 Traditional syntax.
 This code will run on most JavaScript engine.
@@ -44,7 +53,7 @@ var maylily = require("maylily");
 }();
 ```
 
-### ECMAScript 7 (require, async/await)
+### ECMAScript 7
 
 Modern syntax.
 Async/await syntax is easy to read
@@ -52,9 +61,9 @@ Async/await syntax is easy to read
 ```javascript
 const maylily = require("maylily");
 
-(async() => {
+(async() => { // async syntax / arrow function
     try {
-        const id = await maylily();
+        const id = await maylily(); // await syntax
         // do something...
     }
     catch(err) {
@@ -68,7 +77,7 @@ const maylily = require("maylily");
 VERY modern syntax!
 
 ```javascript
-import maylily from "maylily";
+import maylily from "maylily"; // import syntax
 
 (async() => {
     try {
