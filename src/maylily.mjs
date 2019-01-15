@@ -17,6 +17,16 @@ import BigInteger from "big-integer";
  * @property {number} generatorBits size of generatorId
  * @property {number} sequenceBits size of sequence
  */
+/**
+ * @callback Resolve resolver
+ * @param {string | Promise<string>} value value to return
+ * @returns {void}
+ */
+/**
+ * @callback Reject rejector
+ * @param {Error} err error to return
+ * @returns {void}
+ */
 
 const DEFAULT_BITS_MACHINE = 3; // up to 8 machines
 const DEFAULT_BITS_GENERATOR = 10; // 0-1023
@@ -37,8 +47,8 @@ let timePrev = 0;
 let sequence = 0;
 
 /**
- * generate unique ID
- * @param {MaylilyOptions | null} [options = null] ID options
+ * unique ID generator
+ * @param {?MaylilyOptions} [options = null] ID options
  * @return {Promise<string>} generated ID
  */
 function maylily(options = null)
@@ -48,62 +58,49 @@ function maylily(options = null)
 	{
 		Object.assign(optionsGlobal, options);
 	}
-	const sequenceLimit = 1 << optionsGlobal.sequenceBits;
 
-	{
-		const time = Date.now();
-		if(time < timePrev)
-		{
-			return Promise.reject(errorUnixtimeBackwards(time));
-		}
-
-		if(time > timePrev)
-		{
-			// Reset sequence when unixtime is updated.
-			sequence = 0;
-			return Promise.resolve(buildId(time, optionsGlobal));
-		}
-
-		if(sequence < sequenceLimit)
-		{
-			// Increment sequence when sequence DOESN'T reach to limit.
-			return Promise.resolve(buildId(time, optionsGlobal));
-		}
-	}
-
-	// Wait until unixtime is updated
 	return new Promise((resolve, reject) =>
 	{
-		let timeout = setInterval(() =>
-		{
-			const time = Date.now();
-			if(time < timePrev)
-			{
-				reject(errorUnixtimeBackwards(time));
-			}
-
-			// Clear timer and resolve when time is updated.
-			if(time > timePrev)
-			{
-				clearInterval(timeout);
-				timeout = null;
-
-				sequence = 0;
-				resolve(buildId(time, optionsGlobal));
-			}
-
-			if(sequence < sequenceLimit)
-			{
-				// Increment sequence when sequence DOESN'T reach to limit.
-				resolve(buildId(time, optionsGlobal));
-			}
-		}, 1);
+		resolveId(resolve, reject);
 	});
 }
 
 /**
+ * generate and resolve ID
+ * @param {Resolve} resolve resolver
+ * @param {Reject} reject rejector
+ * @returns {void}
+ */
+function resolveId(resolve, reject)
+{
+	const time = Date.now();
+	if(time < timePrev)
+	{
+		reject(errorTimeBackwards(time));
+		return;
+	}
+
+	// Reset sequence when time is updated.
+	if(time > timePrev)
+	{
+		sequence = 0;
+	}
+
+	const sequenceLimit = 1 << optionsGlobal.sequenceBits;
+	if(sequence < sequenceLimit)
+	{
+		// Increment sequence when sequence DOESN'T reach to limit.
+		resolve(buildId(time, optionsGlobal));
+		return;
+	}
+
+	// next time...
+	setTimeout(resolveId, 1, resolve, reject);
+}
+
+/**
  * build unique ID
- * @param {number} time unixtime[millisec]
+ * @param {number} time UNIX time[milliseconds]
  * @param {MaylilyOptions} options other options
  * @return {string} generated ID
  */
@@ -119,11 +116,11 @@ function buildId(time, options)
 }
 
 /**
- * generate error instance for unixtime error
- * @param {number} time unixtime[millisec]
+ * generate error instance for time error
+ * @param {number} time UNIX time[milliseconds]
  * @return {Error} error instance
  */
-function errorUnixtimeBackwards(time)
+function errorTimeBackwards(time)
 {
 	const message = `Clock moved backwards. Refusing to generate id for ${time} milliseconds`;
 	return new Error(message);
