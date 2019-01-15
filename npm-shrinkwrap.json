@@ -695,6 +695,18 @@
         "to-fast-properties": "^2.0.0"
       }
     },
+    "@types/jest": {
+      "version": "23.3.12",
+      "resolved": "https://registry.npmjs.org/@types/jest/-/jest-23.3.12.tgz",
+      "integrity": "sha512-/kQvbVzdEpOq4tEWT79yAHSM4nH4xMlhJv2GrLVQt4Qmo8yYsPdioBM1QpN/2GX1wkfMnyXvdoftvLUr0LBj7Q==",
+      "dev": true
+    },
+    "@types/node": {
+      "version": "10.12.18",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-10.12.18.tgz",
+      "integrity": "sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==",
+      "dev": true
+    },
     "abab": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/abab/-/abab-2.0.0.tgz",
@@ -4874,9 +4886,9 @@
       }
     },
     "math-random": {
-      "version": "1.0.3",
-      "resolved": "https://registry.npmjs.org/math-random/-/math-random-1.0.3.tgz",
-      "integrity": "sha512-hULdrPg17lCyaJOrDwS4RSGQcc/MFyv1aujidohCsBq2zotkhIns8mMDQ7B8VnKG23xcpa+haU5MLDNyNzCesQ==",
+      "version": "1.0.4",
+      "resolved": "https://registry.npmjs.org/math-random/-/math-random-1.0.4.tgz",
+      "integrity": "sha512-rUxjysqif/BZQH2yhd5Aaq7vXMSx9NdEsQcyA07uEzIvxgI7zIr33gGsh+RU0/XjmQpCW7RsVof1vlkvQVCK5A==",
       "dev": true
     },
     "mdurl": {
