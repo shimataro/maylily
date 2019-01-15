@@ -6,6 +6,7 @@ node_js:
 - "6"
 - "8"
 install:
+- "npm install -g codecov"
 - "npm install"
 os:
 - "linux"
@@ -20,6 +21,7 @@ cache:
   - "node_modules"
 script:
 - "npm run verify"
+- "codecov"
 deploy:
   provider: "npm"
   on:

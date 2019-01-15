@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * failed to install...
 * timer resource leaked...
 
+### Others
+
+* gather code coverage
+
 ## [2.1.1] - 2019-01-14
 
 ### Fixed

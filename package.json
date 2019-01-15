@@ -83,7 +83,7 @@
     "transform": {
       "\\.mjs$": "babel-jest"
     },
-    "collectCoverage": false,
+    "collectCoverage": true,
     "coverageDirectory": "./coverage/"
   }
 }
