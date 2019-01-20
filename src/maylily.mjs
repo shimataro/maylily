@@ -19,7 +19,7 @@ import BigInteger from "big-integer";
  */
 /**
  * @callback Resolve resolver
- * @param {string | Promise<string>} value value to return
+ * @param {string} value value to return
  * @returns {void}
  */
 /**
