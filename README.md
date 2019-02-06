@@ -137,7 +137,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 [link-code-coverage]: https://codecov.io/gh/shimataro/maylily
 [image-release]: https://img.shields.io/github/release/shimataro/maylily.svg
 [link-release]: https://github.com/shimataro/maylily/releases
-[image-engine]: https://img.shields.io/node/v/adjuster.svg
+[image-engine]: https://img.shields.io/node/v/maylily.svg
 [link-engine]: https://nodejs.org/
 [image-license]: https://img.shields.io/github/license/shimataro/maylily.svg
 [link-license]: ./LICENSE
