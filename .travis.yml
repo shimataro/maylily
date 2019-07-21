@@ -5,6 +5,8 @@ language: "node_js"
 node_js:
 - "6"
 - "8"
+- "10"
+- "12"
 install:
 - "npm install -g codecov"
 - "npm install"
@@ -15,18 +17,9 @@ branches:
   only:
   - "master"
   - "develop"
-  - /^v\d/
 cache:
   directories:
   - "node_modules"
 script:
 - "npm run verify"
 - "codecov"
-deploy:
-  provider: "npm"
-  on:
-    tags: true
-  email:
-    secure: "sBFKf7wm0CYAP6gxyXCddme0UnmmOqyLczADZgQIDYWf7YAiqEKTC5rBC1+2qqBG1VHA8q6UbE7L8M2JPSrQxmqsc2lCwyOL3h/tKf8QYjrd3bSjCH5ogaWGu7DJHvBGbkuJ+iCrIYhKhAlYZoOuxushdrYx9Gp1OlNEabUdpCpljsmgN1EX3zYJiyqUIeL7HbFHqMlNl7n/+i18W7Uji0Ybos+8o+fMayEZmSer0vc9cT+8nSIMDvxnAhHaMCQb/CWR+s/ZST1dFpV0xrONmt6m0qC6t+hr2dfhmaUdgPh9bJQDxS7MS/7f43z+0ArevFJY300d4crTCsVV60hWF64u133yiGj8vnYKc5ZgpVGBNyOPiMP/BtQMOHomC1fUWYRn0aroWMuERZw1cRcv19XJ47HejNYTapyD7MqeHVnAEhugfeMxjAXRJFVnLkoN/qmhiZcrK5oaBmlIi0BHHPw2zQZSoBEGqZav2+Hb1xohMY1TMXZ7KVRJf9WeoOsLhw+6I2k5LYyNYuTVDuY6B5zDmXED02mYrhAwWBYYhB4UfWG0muddv8nnaXRXQV+DDXDuDWeBvgR37MzQonoapC88V2MPjaehnFOhXNtUAw2NnxA1OJRiKEcEHoSgVr/vPtuilTInmYIpVct9mQREtJNefDt3r1h7quDFmy5lK9Q="
-  api_key:
-    secure: "t4nMsGBVNOy76cHDZelUYgAYqYTFyYxrFBoupBdUdhC9qg4O7JtR+vjo9ju+IZHcVBBF8wXJz002xUt+5aNNN+PFTLlSTEOQtQfJxXXK92WApeY7MZKn6tHAgOfy0dPj7tbPC4iZPb2LhHuiTZPFAqn/l97zOAKVx06UlOynNBHXi19BAxorooqitnkyLA/VghEOITevZEkIa7sNom7EoiL/dtvB3IO22nS/ZavP9yx4Qgzy8tx5yQK/98aTzENrH9HV1aai0wkhAsZEr4WZuyjJ3sWlXqPpepYZHTArhLI9SGVMny3uNr/pMk4s2hw76hrZrMtZqT5Xq4g6GrotdCWd32Ps43gi3KxoJyw3s98smqK4199ZGpPDZ0qm3Enyam9PB3lKxXbhAjJQx5X0eH/Y93W2EqEnap+HSjceosq/9rBMHBNynJSWmmR7ZWH2mV1xB//0wbrTkG0RqxZYXiqVqQ/8ecDUC6ITsJv7BTh6gLwxd9dR6NXKhPtYe0dLAoTjKCqZk3oRj2jeimI/fyVOP9abIo6QvzmaBIGQncqGnAxeEQAhueS0zdNcVg4VaWRkTnCLzyYCTX24eMH3CUUpAC1ax+NAiuoJw/SEaP2Q5abiSLHfkNQs/ZeBNY5DxD+A71v3lgtJ/9G/D7yRtVJ0lmigUnqb4nB1Go3y8Ko="

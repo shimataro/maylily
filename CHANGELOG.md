@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.0] - 2019-07-21
+
+### Others
+
+* update dependencies
+* Support Node.js v10/v12
+
 ## [2.1.2] - 2019-01-16
 
 ### Fixed
@@ -45,7 +52,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * First release.
 
-[Unreleased]: https://github.com/shimataro/maylily/compare/v2.1.2...HEAD
+[Unreleased]: https://github.com/shimataro/maylily/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/shimataro/maylily/compare/v2.1.2...v2.2.0
 [2.1.2]: https://github.com/shimataro/maylily/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/shimataro/maylily/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/shimataro/maylily/compare/v2.0.0...v2.1.0
