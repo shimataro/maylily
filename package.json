@@ -1,6 +1,6 @@
 {
   "name": "maylily",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "distributable, serverless, and customizable unique ID generator based on Snowflake",
   "main": "./dist/maylily.js",
   "types": "./src/maylily.d.ts",
