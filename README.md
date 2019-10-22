@@ -3,6 +3,7 @@
 [![Build Status (Windows)][image-build-windows]][link-build-windows]
 [![Build Status (macOS)][image-build-macos]][link-build-macos]
 [![Build Status (Linux)][image-build-linux]][link-build-linux]
+[![Syntax check][image-syntax-check]][link-syntax-check]
 [![Code Coverage][image-code-coverage]][link-code-coverage]
 [![Release][image-release]][link-release]
 [![Node.js version][image-engine]][link-engine]
@@ -127,12 +128,14 @@ maylily({
 
 See [CHANGELOG.md](CHANGELOG.md).
 
-[image-build-windows]: https://img.shields.io/appveyor/ci/shimataro/maylily/master.svg?label=Windows
-[link-build-windows]: https://ci.appveyor.com/project/shimataro/maylily
-[image-build-macos]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=macOS
-[link-build-macos]: https://travis-ci.com/shimataro/maylily
-[image-build-linux]: https://img.shields.io/travis/com/shimataro/maylily/master.svg?label=Linux
-[link-build-linux]: https://travis-ci.com/shimataro/maylily
+[image-build-windows]: https://github.com/shimataro/maylily/workflows/Windows/badge.svg
+[link-build-windows]: https://github.com/shimataro/maylily
+[image-build-macos]: https://github.com/shimataro/maylily/workflows/macOS/badge.svg
+[link-build-macos]: https://github.com/shimataro/maylily
+[image-build-linux]: https://github.com/shimataro/maylily/workflows/Linux/badge.svg
+[link-build-linux]: https://github.com/shimataro/maylily
+[image-syntax-check]: https://github.com/shimataro/maylily/workflows/Syntax%20check/badge.svg
+[link-syntax-check]: https://github.com/shimataro/maylily
 [image-code-coverage]: https://img.shields.io/codecov/c/github/shimataro/maylily/master.svg
 [link-code-coverage]: https://codecov.io/gh/shimataro/maylily
 [image-release]: https://img.shields.io/github/release/shimataro/maylily.svg

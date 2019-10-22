@@ -1,7 +1,7 @@
 {
   "comments": false,
   "presets": [
-    ["@babel/preset-env", {"targets": {"node": "current"}, "useBuiltIns": "usage", "corejs": 3}]
+    ["@babel/preset-env", {"targets": {"node": "4.0.0"}, "useBuiltIns": "usage", "corejs": 3, "exclude": ["transform-regenerator"]}]
   ],
   "plugins": [
     ["add-module-exports"]
@@ -9,7 +9,7 @@
   "env": {
     "esm": {
       "presets": [
-        ["@babel/preset-env", {"targets": {"node": "current"}, "useBuiltIns": "usage", "corejs": 3, "modules": false}]
+        ["@babel/preset-env", {"targets": {"node": "8.5.0"}, "useBuiltIns": "usage", "corejs": 3, "exclude": ["transform-regenerator"], "modules": false}]
       ]
     }
   }
