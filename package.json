@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "description": "distributable, serverless, and customizable unique ID generator based on Snowflake",
   "main": "./dist/maylily.js",
-  "types": "./src/maylily.d.ts",
+  "types": "./dist/maylily.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/shimataro/maylily.git"
@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "run-p build:*",
+    "build:dts": "copyfiles --up=1 'src/**/*.d.ts' dist",
     "build:cjs": "npm run build-core",
     "build:esm": "cross-env BABEL_ENV=esm npm run build-core -- --keep-file-extension",
     "build-core": "babel ./src --out-dir ./dist --source-maps",
@@ -63,6 +64,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.3",
     "babel-plugin-add-module-exports": "1.0.2",
+    "copyfiles": "2.1.1",
     "cross-env": "6.0.3",
     "eslint": "6.5.1",
     "eslint-plugin-import": "2.18.2",
