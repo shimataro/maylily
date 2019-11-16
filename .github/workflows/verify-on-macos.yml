@@ -5,7 +5,7 @@ name: macOS
 jobs:
   verify:
     name: Verify on Node.js v${{ matrix.nodejs }}
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         nodejs:
